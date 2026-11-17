@@ -11,9 +11,12 @@ this strategy family loses, so the reclaim test guards every entry:
    the lowest close of the last hour is a few bars old, the close has
    bounced a set margin off that low, is still rising against a few bars
    ago, and the signal bar's own range is not extreme. Three tiers,
-   deepest first: 3.8% under the 360-bar high with a 0.90% bounce buys
-   95% of cash; 3.0% under it with a 0.70% bounce buys 85%; 2.5% under
-   the 120-bar high with a 0.60% bounce buys 70%. Exits: hard stop 1.0%
+   deepest first: 4.2% under the 360-bar high with a 1.20% bounce buys
+   95% of cash; 3.3% under it with a 0.95% bounce buys 85%; 2.8% under
+   the 120-bar high with a 0.80% bounce buys 70%. The tiers sit at the
+   patient centre of their plateau: loosening the dips or the bounces
+   by a fifth re-opens the knife-catching this design exists to avoid,
+   and tightening them by a fifth costs little. Exits: hard stop 1.0%
    under the entry, take-profit 2.0% above it, a trailing stop 0.8%
    under the best close once the trade has run 1.3% into profit, or a
    time stop after 360 bars; then a 120-bar rest, at most 5 legs.
@@ -66,9 +69,9 @@ PARAMS = {
     "w_range_max_bps": 300,    # skip signal bars wider than this
     # (dip_bps, lookback key, bounce_bps, size_bps of cash), deepest first
     "w_tiers": (
-        (380, "long_lb", 90, 9500),
-        (300, "long_lb", 70, 8500),
-        (250, "short_lb", 60, 7000),
+        (420, "long_lb", 120, 9500),
+        (330, "long_lb", 95, 8500),
+        (280, "short_lb", 80, 7000),
     ),
     "w_tp_bps": 200,
     "w_stop_bps": 100,
